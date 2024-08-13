@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TooDoo list</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<!--css file-->
+    <style>
+        body{
+            align-items: center;
+            text-align: center;
+            margin-top: 120px;
+            margin-left: 475px;
+            background-color: gray;
+            font-weight: bold;
+        }
+        input{
+            border-radius: 5px;
+            box-shadow: 2px 2px black;
+            margin: 5px;
+            padding: 5px;
+            font-weight: bold;
+        }
+        button{
+            border-radius: 5px;
+            box-shadow: 2px 2px black;
+            width: 100px;
+            margin: 15px;
+            padding: 5px;
+            font-weight: bold;
+        }
+        ul{
+            display: inline-block;
+            text-align: left;
+            font-weight: bold;
+        }
+        .border{
+            align-items: center;
+            border: 2px solid black;
+            border-radius: 5px;
+            width: fit-content;
+            height: fit-content;
+            box-shadow: 4px 4px black;
+            padding: 50px;
+        }
+    </style>
+<!--html file-->
+    <div class="border">
+        <h1>TooDoo List</h1><br>
+        <input id="inputbox" type="text" placeholder="Enter your task">
+        <button id="addbtn" class="btn-primary">add</button><br><br>
+        <ul id="lists">
+            <li>
+                Orange<button onclick="delfunction(event)" id="delbtn" class="btn-danger">Delete</button>
+            </li>
+        </ul>
+    </div>
+<!--script file-->
+    <script>
+        let addbtn = document.getElementById("addbtn")
+        //let delbtn = document.getElementById("delbtn")
+        let lists = document.getElementById("lists")
+
+        addbtn.addEventListener("click",()=>{
+            let inputbox = document.getElementById("inputbox")
+            let newli = document.createElement("li")
+            newli.innerHTML =  inputbox.value + `<button id="delbtn" onclick="delfunction(event)" class="btn-danger m-2rem">Delete</button>`
+            lists.append(newli)
+        })
+
+        const delfunction =(event)=>{
+            event.target.parentElement.remove()
+        }
+    </script>
+
+    
+</body>
+</html>
